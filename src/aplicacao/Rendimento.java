@@ -17,5 +17,10 @@ public class Rendimento {
 		float rendimentoBruto = (taxaJurosAnual * valorInicial) * prazo/365;
 		return rendimentoBruto;
 	}
+
+	public double calcularImpostodeRenda() {
+		
+		return 3.14f;
+	}
 	
 }
