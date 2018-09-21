@@ -14,5 +14,12 @@ public class TesteRendimentoLiquido {
 		
 		assertEquals(1.0828f, calcRend.calcularRendimentoLiquido(), 0.0001);
 	}
+	
+	@Test
+	public void testeRendimentoLiquido2() {
+		Rendimento calcRend = new Rendimento(3000.00f, 240, 9.0f);
+		
+		assertEquals(4.7342f, calcRend.calcularRendimentoLiquido(), 0.0001);
+	}
 
 }
