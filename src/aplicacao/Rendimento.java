@@ -29,14 +29,14 @@ public class Rendimento {
 		return rendimentoBruto;
 	}
 
-	public double calcularImpostodeRenda() {
+	public float calcularImpostodeRenda() {
 
 		return calcularRendimentoBruto() * aliquota;
 	}
 
-	public double calcularRendimentoLiquido() {
-		// TODO Auto-generated method stub
-		return 1.0828f;
+	public float calcularRendimentoLiquido() {
+
+		return (calcularRendimentoBruto() - calcularImpostodeRenda()) / valorInicial * 100;
 	}
 
 }
