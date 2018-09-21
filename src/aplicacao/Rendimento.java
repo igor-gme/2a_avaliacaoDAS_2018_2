@@ -9,7 +9,8 @@ public class Rendimento {
 
 	
 	public float calcularRendimentoBruto(float valorInicial, int prazo, float taxaAnual) {
-		float rendimentoBruto = (((taxaAnual/100)/365)* valorInicial) * prazo;
+		float taxaJurosAnual = taxaAnual/100;
+		float rendimentoBruto = (taxaJurosAnual* valorInicial) * prazo/365;
 		return rendimentoBruto;
 	}
 
