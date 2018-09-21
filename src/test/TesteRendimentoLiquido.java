@@ -2,24 +2,42 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 
 import aplicacao.Rendimento;
 
+@RunWith(Parameterized.class)
 public class TesteRendimentoLiquido {
 
-	@Test
-	public void testeRendimentoLiquido() {
-		Rendimento calcRend = new Rendimento(1000.00f, 60, 8.5f);
-		
-		assertEquals(1.0828f, calcRend.calcularRendimentoLiquido(), 0.0001);
+	@Parameters
+	public static Collection<Object[]> data() {
+		return Arrays.asList(new Object[][] { {1000.00f, 60, 8.5f, 1.0828f}, 
+											  {3000.00f, 240, 9.0f, 4.7342f},
+											  {400.00f, 550, 8.0f, 9.9452f},
+											  });
 	}
 	
+	@Parameter
+	public float valorInicial;
+ 	@Parameter(1)
+ 	public int prazo;
+ 	@Parameter(2)
+	public float taxaAnual;
+ 	@Parameter(3)
+	public float rendimentoLiquidoEsperado;
+	
 	@Test
-	public void testeRendimentoLiquido2() {
-		Rendimento calcRend = new Rendimento(3000.00f, 240, 9.0f);
+	public void testeRendimentoLiquido() {
+		Rendimento calcRend = new Rendimento(valorInicial, prazo, taxaAnual);
 		
-		assertEquals(4.7342f, calcRend.calcularRendimentoLiquido(), 0.0001);
+		assertEquals(rendimentoLiquidoEsperado, calcRend.calcularRendimentoLiquido(), 0.0001);
 	}
 
 }
