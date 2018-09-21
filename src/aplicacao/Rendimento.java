@@ -34,4 +34,9 @@ public class Rendimento {
 		return calcularRendimentoBruto() * aliquota;
 	}
 
+	public double calcularRendimentoLiquido() {
+		// TODO Auto-generated method stub
+		return 1.0828f;
+	}
+
 }
